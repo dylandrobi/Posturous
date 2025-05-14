@@ -7,7 +7,7 @@
 //         get real-time feedback on your form using Computer Vision, Pose Estimation, and Machine Learning.
 //       </p>
 //       <div className="flex flex-col sm:flex-row gap-4">
-//         <a href="#" className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-2xl shadow-md transition-all">
+//         <a href="#" className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-2xl shadow-md transition-all">
 //           Coming Soon
 //         </a>
 //         <a href="#" className="border border-white hover:bg-white hover:text-black font-semibold py-3 px-6 rounded-2xl transition-all">
@@ -27,6 +27,7 @@ export default function LandingPage() {
   const [showDylan, setShowDylan] = useState(false);
   const [showNathan, setShowNathan] = useState(false);
   const [showForm, setShowForm] = useState(false);
+  const [showComingSoon, setShowComingSoon] = useState(false);
 
   useEffect(() => {
     const scrollElements = document.querySelectorAll("[data-scroll]");
@@ -46,15 +47,16 @@ export default function LandingPage() {
 
   return (
     <main className="min-h-screen bg-black text-white flex flex-col items-center px-4 text-center scroll-smooth">
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-radial from-blue-800 via-indigo-800 to-black opacity-40 blur-3xl z-0"></div>
       {/* Header Nav */}
       <header className="w-full py-4 bg-black fixed top-0 left-0 z-50 border-b border-gray-800 shadow">
         <nav className="max-w-6xl mx-auto flex justify-around text-sm md:text-base font-medium">
-          <a href="#get-paid" className="hover:text-orange-500 transition">Get Paid to Lift</a>
-          <a href="#problem" className="hover:text-orange-500 transition">Problem & Solution</a>
-          <a href="#how-it-works" className="hover:text-orange-500 transition">How It Works</a>
-          <a href="#supported-exercises" className="hover:text-orange-500 transition">Supported Exercises</a>
-          <a href="#features" className="hover:text-orange-500 transition">Features</a>
-          <a href="#about" className="hover:text-orange-500 transition">About Us</a>
+          <a href="#get-paid" className="hover:text-blue-500 transition">Get Paid to Lift</a>
+          <a href="#problem" className="hover:text-blue-500 transition">Problem & Solution</a>
+          <a href="#how-it-works" className="hover:text-blue-500 transition">How It Works</a>
+          <a href="#supported-exercises" className="hover:text-blue-500 transition">Supported Exercises</a>
+          <a href="#features" className="hover:text-blue-500 transition">Features</a>
+          <a href="#about" className="hover:text-blue-500 transition">About Us</a>
         </nav>
       </header>
 
@@ -67,7 +69,7 @@ export default function LandingPage() {
         <div className="w-123 border-t border-white my-4" />
         <p className="text-sm text-gray-300 mb-8">Soon supporting: deadlift, squat, and bench press (2026). More exercises coming soon.</p>
         <div className="flex flex-col sm:flex-row gap-4">
-          <a href="#get-paid" className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-2xl shadow-md transition-all">
+          <a href="#get-paid" className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-2xl shadow-md transition-all">
             Get Paid to Lift
           </a>
           <a href="#problem" className="border border-white hover:bg-white hover:text-black font-semibold py-3 px-6 rounded-2xl transition-all">
@@ -75,7 +77,7 @@ export default function LandingPage() {
           </a>
           <button
             onClick={() => setShowForm(!showForm)}
-            className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-2xl shadow-md transition-all"
+            className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-2xl shadow-md transition-all"
           >
             Join Waitlist
           </button>
@@ -133,7 +135,7 @@ export default function LandingPage() {
               <option>Not right now</option>
             </select>
             <p className="text-sm text-gray-600">✉️ We’ll use your answers to build something that actually helps — and you’ll be the first to know when it’s ready.</p>
-            <button type="submit" className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded">Submit</button>
+            <button type="submit" className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
           </form>
         )}
       </section>
@@ -141,7 +143,7 @@ export default function LandingPage() {
 
       {/* Get Paid to Lift Section */}
       <section id="get-paid" data-scroll className="max-w-5xl w-full py-32 px-6 md:px-12 opacity-0 transform translate-y-10 transition duration-700 ease-in-out">
-        <h2 className="text-4xl font-bold text-orange-500 mb-6">Help Us Train Posturous — Get Paid to Lift!</h2>
+        <h2 className="text-4xl font-bold text-blue-500 mb-6">Help Us Train Posturous — Get Paid to Lift!</h2>
         <p className="text-md text-gray-300 mb-8">We’re in Phase 1: Data Collection. To build the best possible product, we need real videos of real lifters. That's where you come in!</p>
         <p className="text-lg text-gray-100 mb-4">💵 Earn $5 for each completed exercise set (100 reps)<br />That’s $15 total for helping train our Machine Learning models!</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left text-sm mb-8">
@@ -161,19 +163,19 @@ export default function LandingPage() {
         <div className="text-left">
           <h3 className="text-2xl font-semibold text-white mb-4">Frequently Asked Questions</h3>
           <div className="mb-6">
-            <p className="font-semibold text-orange-400">Q: What’s the footage for?</p>
+            <p className="font-semibold text-blue-400">Q: What’s the footage for?</p>
             <p className="text-sm text-gray-300">A: We use your reps (anonymized) to train our Machine Learning models to recognize and correct form across real-world conditions.</p>
           </div>
           <div className="mb-6">
-            <p className="font-semibold text-orange-400">Q: What if I’m a beginner?</p>
+            <p className="font-semibold text-blue-400">Q: What if I’m a beginner?</p>
             <p className="text-sm text-gray-300">A: That’s actually great. We want data from lifters of all skill levels.</p>
           </div>
           <div className="mb-6">
-            <p className="font-semibold text-orange-400">Q: Do I have to upload all the reps at once?</p>
+            <p className="font-semibold text-blue-400">Q: Do I have to upload all the reps at once?</p>
             <p className="text-sm text-gray-300">A: Nope! Upload over time — as little or as much as you want per session until you hit 100 per exercise.</p>
           </div>
           <div className="mb-6">
-            <p className="font-semibold text-orange-400">Q: How will I get paid?</p>
+            <p className="font-semibold text-blue-400">Q: How will I get paid?</p>
             <p className="text-sm text-gray-300">A: Once your submission is verified, we’ll pay you via Venmo, PayPal, or the method you prefer.</p>
           </div>
           
@@ -183,15 +185,29 @@ export default function LandingPage() {
         {/* CTA */}
         <div className="mt-12">
           <p className="text-lg font-semibold mb-4">Ready to help build the future of fitness?</p>
-          <a href="#" className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-xl shadow-md transition-all">
-            Download Posturous (App Store)
-          </a>
+          <a
+  href="#"
+  onClick={(e) => {
+    e.preventDefault();
+    setShowComingSoon(true);
+  }}
+  className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl shadow-md transition-all"
+>
+  Download Posturous (App Store)
+</a>
+
+{showComingSoon && (
+  <div className="mt-4 text-blue-300 bg-gray-800 border border-blue-500 p-4 rounded-lg shadow">
+    Coming 2026!
+  </div>
+)}
+
         </div>
       </section>
 
       {/* Problem & Solution */}
       <section id="problem" data-scroll className="max-w-5xl w-full py-32 px-6 md:px-12 opacity-0 transform translate-y-10 transition duration-700 ease-in-out">
-        <h2 className="text-4xl font-bold text-orange-500 mb-6">The Problem</h2>
+        <h2 className="text-4xl font-bold text-blue-500 mb-6">The Problem</h2>
         <p className="text-lg mb-6">Millions of people unknowingly exercise with improper form — and the consequences are serious.</p>
         <ul className="list-disc text-left text-base space-y-2 ml-4">
           <li>Injuries that derail progress or require medical treatment</li>
@@ -199,7 +215,7 @@ export default function LandingPage() {
           <li>Poor movement habits that compound over time</li>
         </ul>
         <div className="mt-12 border-t border-gray-700 pt-10">
-          <h3 className="text-3xl font-semibold text-orange-500 mb-4">Our Solution</h3>
+          <h3 className="text-3xl font-semibold text-blue-500 mb-4">Our Solution</h3>
           <p className="text-lg max-w-3xl mx-auto mb-4">
             Using cutting-edge computer vision, human pose estimation, and machine learning, Posturous watches your form in real time and delivers instant feedback — no fancy equipment or expensive coach required.
           </p>
@@ -215,7 +231,7 @@ export default function LandingPage() {
 
       {/* How It Works */}
       <section id="how-it-works" data-scroll className="bg-gray-900 max-w-5xl w-full py-32 px-6 md:px-12 rounded-xl opacity-0 transform translate-y-10 transition duration-700 ease-in-out">
-        <h2 className="text-4xl font-bold text-orange-500 mb-10">How It Works</h2>
+        <h2 className="text-4xl font-bold text-blue-500 mb-10">How It Works</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-black border border-gray-700 p-6 rounded-xl shadow-md">
             <h3 className="text-xl font-semibold mb-2">1. Set Up Your Camera</h3>
@@ -234,7 +250,7 @@ export default function LandingPage() {
 
       {/* Supported Exercises */}
       <section id="supported-exercises" data-scroll className="max-w-5xl w-full py-32 px-6 md:px-12 opacity-0 transform translate-y-10 transition duration-700 ease-in-out">
-        <h2 className="text-4xl font-bold text-orange-500 mb-10">Supported Exercises (Coming 2026)</h2>
+        <h2 className="text-4xl font-bold text-blue-500 mb-10">Supported Exercises (Coming 2026)</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-6 bg-gray-800 rounded-xl">
             <h3 className="text-xl font-semibold mb-2">Deadlift</h3>
@@ -254,7 +270,7 @@ export default function LandingPage() {
 
       {/* Features & Benefits */}
       <section id="features" data-scroll className="bg-gray-900 max-w-5xl w-full py-24 px-6 md:px-12 rounded-xl opacity-0 transform translate-y-10 transition duration-700 ease-in-out">
-        <h2 className="text-4xl font-bold text-orange-500 mb-10">Features & Benefits</h2>
+        <h2 className="text-4xl font-bold text-blue-500 mb-10">Features & Benefits</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <ul className="list-disc text-left space-y-2 ml-6 text-sm">
             <li>Real-time form feedback using computer vision</li>
@@ -271,18 +287,18 @@ export default function LandingPage() {
 
       {/* About Us */}
       <section id="about" data-scroll className="max-w-5xl w-full py-32 px-6 md:px-12 opacity-0 transform translate-y-10 transition duration-700 ease-in-out">
-        <h2 className="text-4xl font-bold text-orange-500 mb-10">About Us</h2>
+        <h2 className="text-4xl font-bold text-blue-500 mb-10">About Us</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
           <div className="bg-gray-800 p-6 rounded-xl">
             <h3 className="text-xl font-semibold mb-2">Founder & CEO: Dylan Robichaud, B.S. Computer Engineering</h3>
-            <p className="text-sm mb-2">📞 203-216-5226<br />📧 thedylanrobichaud@gmail.com<br />🔗 <a href="https://www.linkedin.com/in/dylan-robichaud/" className="text-orange-400 underline">LinkedIn</a></p>
-            <button onClick={() => setShowDylan(!showDylan)} className="text-sm underline text-orange-500 mt-2">{showDylan ? "Hide Story" : "Hear Story"}</button>
+            <p className="text-sm mb-2">📞 203-216-5226<br />📧 thedylanrobichaud@gmail.com<br />🔗 <a href="https://www.linkedin.com/in/dylan-robichaud/" className="text-blue-400 underline">LinkedIn</a></p>
+            <button onClick={() => setShowDylan(!showDylan)} className="text-sm underline text-blue-500 mt-2">{showDylan ? "Hide Story" : "Hear Story"}</button>
             {showDylan && <p className="text-sm mt-2">Around when I started taking weightlifting serious at the age of 18, I got a disk bulge in my lower back. The consensus from many different doctors was that I had been lifting with incorrect form. With my background in Computer Engineering and my passion for exercising, my goal is to develop a pristine product which can help people avoid making the same mistake I did; exercising with improper form/technique.</p>}
           </div>
           <div className="bg-gray-800 p-6 rounded-xl">
             <h3 className="text-xl font-semibold mb-2">COO: Nathan Goldstein, B.S. Electrical Engineering</h3>
-            <p className="text-sm mb-2">📞 314-604-5909<br />📧 goldstn2@union.edu<br />🔗 <a href="https://www.linkedin.com/in/nathan-goldstein-a3304125b/" className="text-orange-400 underline">LinkedIn</a></p>
-            <button onClick={() => setShowNathan(!showNathan)} className="text-sm underline text-orange-500 mt-2">{showNathan ? "Hide Story" : "Hear Story"}</button>
+            <p className="text-sm mb-2">📞 314-604-5909<br />📧 goldstn2@union.edu<br />🔗 <a href="https://www.linkedin.com/in/nathan-goldstein-a3304125b/" className="text-blue-400 underline">LinkedIn</a></p>
+            <button onClick={() => setShowNathan(!showNathan)} className="text-sm underline text-blue-500 mt-2">{showNathan ? "Hide Story" : "Hear Story"}</button>
             {showNathan && <p className="text-sm mt-2"> </p>}
           </div>
         </div>
