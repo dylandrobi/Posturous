@@ -65,7 +65,7 @@ export default function LandingPage() {
           Train safer, lift smarter — Posturous gives you real-time feedback on your form.
         </p>
         <div className="w-123 border-t border-white my-4" />
-        <p className="text-sm text-gray-300 mb-8">Now supporting: deadlift, squat, and bench press. More exercises coming soon.</p>
+        <p className="text-sm text-gray-300 mb-8">Soon supporting: deadlift, squat, and bench press (2026). More exercises coming soon.</p>
         <div className="flex flex-col sm:flex-row gap-4">
           <a href="#get-paid" className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-2xl shadow-md transition-all">
             Get Paid to Lift
@@ -80,7 +80,7 @@ export default function LandingPage() {
             Join Waitlist
           </button>
         </div>
-        <div className="mt-16 text-sm text-gray-400">&copy; {new Date().getFullYear()} Posturous. All rights reserved.</div>
+        <div className="mt-16 text-sm text-gray-400">&copy; {new Date().getFullYear()} Posturous.</div>
 
         {/* Waitlist Popup Form */}
         {showForm && (
@@ -178,9 +178,7 @@ export default function LandingPage() {
           </div>
           
         </div>
-        <p className="mt-10 text-sm text-gray-300">
-  Have a question, comment, concern, or idea? Email <a href="mailto:faq@posturous.com" className="text-orange-400 underline">faq@posturous.com</a> and we will get back to you ASAP!
-</p>
+        
 
         {/* CTA */}
         <div className="mt-12">
@@ -236,7 +234,7 @@ export default function LandingPage() {
 
       {/* Supported Exercises */}
       <section id="supported-exercises" data-scroll className="max-w-5xl w-full py-32 px-6 md:px-12 opacity-0 transform translate-y-10 transition duration-700 ease-in-out">
-        <h2 className="text-4xl font-bold text-orange-500 mb-10">Supported Exercises</h2>
+        <h2 className="text-4xl font-bold text-orange-500 mb-10">Supported Exercises (Coming 2026)</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-6 bg-gray-800 rounded-xl">
             <h3 className="text-xl font-semibold mb-2">Deadlift</h3>
@@ -276,16 +274,16 @@ export default function LandingPage() {
         <h2 className="text-4xl font-bold text-orange-500 mb-10">About Us</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
           <div className="bg-gray-800 p-6 rounded-xl">
-            <h3 className="text-xl font-semibold mb-2">Founder: Dylan Robichaud, B.S. Computer Engineering</h3>
+            <h3 className="text-xl font-semibold mb-2">Founder & CEO: Dylan Robichaud, B.S. Computer Engineering</h3>
             <p className="text-sm mb-2">📞 203-216-5226<br />📧 thedylanrobichaud@gmail.com<br />🔗 <a href="https://www.linkedin.com/in/dylan-robichaud/" className="text-orange-400 underline">LinkedIn</a></p>
             <button onClick={() => setShowDylan(!showDylan)} className="text-sm underline text-orange-500 mt-2">{showDylan ? "Hide Story" : "Hear Story"}</button>
             {showDylan && <p className="text-sm mt-2">Around when I started taking weightlifting serious at the age of 18, I got a disk bulge in my lower back. The consensus from many different doctors was that I had been lifting with incorrect form. With my background in Computer Engineering and my passion for exercising, my goal is to develop a pristine product which can help people avoid making the same mistake I did; exercising with improper form/technique.</p>}
           </div>
           <div className="bg-gray-800 p-6 rounded-xl">
-            <h3 className="text-xl font-semibold mb-2">Co-Founder: Nathan Goldstein, B.S. Electrical Engineering</h3>
+            <h3 className="text-xl font-semibold mb-2">COO: Nathan Goldstein, B.S. Electrical Engineering</h3>
             <p className="text-sm mb-2">📞 314-604-5909<br />📧 goldstn2@union.edu<br />🔗 <a href="https://www.linkedin.com/in/nathan-goldstein-a3304125b/" className="text-orange-400 underline">LinkedIn</a></p>
             <button onClick={() => setShowNathan(!showNathan)} className="text-sm underline text-orange-500 mt-2">{showNathan ? "Hide Story" : "Hear Story"}</button>
-            {showNathan && <p className="text-sm mt-2">Around when I started taking weightlifting serious at the age of 18, I got a disk bulge in my lower back. The consensus from many different doctors was that I had been lifting with incorrect form. With my background in Computer Engineering and my passion for exercising, my goal is to develop a pristine product which can help people avoid making the same mistake I did; exercising with improper form/technique.</p>}
+            {showNathan && <p className="text-sm mt-2"> </p>}
           </div>
         </div>
         <p className="text-sm text-center mt-12">We’re two Union College students and engineers on a mission to make fitness safer and smarter. Posturous is built on the belief that good form should be accessible to everyone — and technology can get us there.</p>
@@ -293,7 +291,7 @@ export default function LandingPage() {
 
       {/* Sticky Footer */}
       <footer className="w-full text-center text-sm text-gray-400 py-6 border-t border-gray-800 bg-black fixed bottom-0 z-40">
-        <p>© 2025 Posturous. All rights reserved.</p>
+        <p>2025 Posturous.</p>
         <p>Designed with purpose. Built with care.</p>
       </footer>
     </main>
