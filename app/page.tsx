@@ -22,8 +22,39 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { db } from "./lib/firebase"; 
 
 export default function LandingPage() {
+  const handleWaitlistSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+  
+    const data = {
+      email: formData.get("email"),
+      location: formData.get("location"),
+      types: formData.getAll("types"),
+      trainer: formData.get("trainer"),
+      filmingComfort: formData.get("filmingComfort"),
+      frequency: formData.get("frequency"),
+      favoriteFeature: formData.get("favoriteFeature"),
+      betaInterest: formData.get("betaInterest"),
+      submittedAt: Timestamp.now(),
+    };
+  
+    try {
+      await addDoc(collection(db, "waitlist"), data);
+      alert("Thanks for joining the waitlist!");
+      form.reset();
+      setShowForm(false);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Oops! Something went wrong. Please try again.");
+    }
+  };
+  
   const [showDylan, setShowDylan] = useState(false);
   const [showNathan, setShowNathan] = useState(false);
   const [showForm, setShowForm] = useState(false);
@@ -47,7 +78,6 @@ export default function LandingPage() {
 
   return (
     <main className="min-h-screen bg-black text-white flex flex-col items-center px-4 text-center scroll-smooth">
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-radial from-blue-800 via-indigo-800 to-black opacity-40 blur-3xl z-0"></div>
       {/* Header Nav */}
       <header className="w-full py-4 bg-black fixed top-0 left-0 z-50 border-b border-gray-800 shadow">
         <nav className="max-w-6xl mx-auto flex justify-around text-sm md:text-base font-medium">
@@ -82,62 +112,89 @@ export default function LandingPage() {
             Join Waitlist
           </button>
         </div>
-        {/*<div className="mt-16 text-sm text-gray-400">&copy; {new Date().getFullYear()} Posturous.</div>*/}
+        {/*<div className="mt-16 text-sm text-gray-400">&copy; {new Date().getFullYear()} Posturous.</div>
 
         {/* Waitlist Popup Form */}
         {showForm && (
-          <form className="bg-white text-black p-6 rounded-xl shadow-lg max-w-xl mx-auto mt-12 space-y-4 text-left">
-            <h2 className="text-2xl font-bold mb-4">Join the Waitlist</h2>
-            <label>Email: <input type="email" required className="w-full border p-2 rounded" /></label>
-            <label>Where do you usually work out?</label>
-            <select className="w-full border p-2 rounded">
-              <option>At home</option>
-              <option>At the gym</option>
-              <option>Outdoors</option>
-              <option>Other</option>
-            </select>
-            <fieldset className="space-y-1">
-              <legend className="font-semibold">What types of exercises do you do regularly?</legend>
-              <label><input type="checkbox" /> Weightlifting</label><br />
-              <label><input type="checkbox" /> Bodyweight / calisthenics</label><br />
-              <label><input type="checkbox" /> Running / cardio</label><br />
-              <label><input type="checkbox" /> CrossFit / HIIT</label><br />
-              <label><input type="checkbox" /> Mobility / rehab</label><br />
-              <label><input type="checkbox" /> Other</label>
-            </fieldset>
-            <label>Have you ever used a personal trainer?</label>
-            <select className="w-full border p-2 rounded">
-              <option>Yes</option>
-              <option>No</option>
-              <option>Online / Virtual Coaching</option>
-            </select>
-            <label>Comfort filming workouts:</label>
-            <select className="w-full border p-2 rounded">
-              <option>Totally comfortable</option>
-              <option>Somewhat comfortable</option>
-              <option>Not really comfortable</option>
-              <option>I’ve never tried it</option>
-            </select>
-            <label>Workout Frequency:</label>
-            <select className="w-full border p-2 rounded">
-              <option>1–2 times/week</option>
-              <option>3–4 times/week</option>
-              <option>5+ times/week</option>
-              <option>Not consistently</option>
-            </select>
-            <label>What feature would you be most excited about in Posturous?
-              <textarea className="w-full border p-2 rounded"></textarea>
-            </label>
-            <label>Would you be open to giving feedback or joining our beta test group?</label>
-            <select className="w-full border p-2 rounded">
-              <option>Yes!</option>
-              <option>Maybe</option>
-              <option>Not right now</option>
-            </select>
-            <p className="text-sm text-gray-600">✉️ We’ll use your answers to build something that actually helps — and you’ll be the first to know when it’s ready.</p>
-            <button type="submit" className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
-          </form>
-        )}
+  <form onSubmit={handleWaitlistSubmit} className="bg-white text-black p-6 rounded-xl shadow-lg max-w-xl mx-auto mt-12 space-y-4 text-left">
+    <h2 className="text-2xl font-bold mb-4">Join the Waitlist</h2>
+
+    <label>
+      Email:
+      <input type="email" name="email" required className="w-full border p-2 rounded" />
+    </label>
+
+    <label>
+      Where do you usually work out?
+      <select name="location" className="w-full border p-2 rounded">
+        <option value="At home">At home</option>
+        <option value="At the gym">At the gym</option>
+        <option value="Outdoors">Outdoors</option>
+        <option value="Other">Other</option>
+      </select>
+    </label>
+
+    <fieldset className="space-y-1">
+      <legend className="font-semibold">What types of exercises do you do regularly?</legend>
+      <label><input type="checkbox" name="types" value="Weightlifting" /> Weightlifting</label><br />
+      <label><input type="checkbox" name="types" value="Bodyweight / calisthenics" /> Bodyweight / calisthenics</label><br />
+      <label><input type="checkbox" name="types" value="Running / cardio" /> Running / cardio</label><br />
+      <label><input type="checkbox" name="types" value="CrossFit / HIIT" /> CrossFit / HIIT</label><br />
+      <label><input type="checkbox" name="types" value="Mobility / rehab" /> Mobility / rehab</label><br />
+      <label><input type="checkbox" name="types" value="Other" /> Other</label>
+    </fieldset>
+
+    <label>
+      Have you ever used a personal trainer?
+      <select name="trainer" className="w-full border p-2 rounded">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="Online / Virtual Coaching">Online / Virtual Coaching</option>
+      </select>
+    </label>
+
+    <label>
+      Comfort filming workouts:
+      <select name="filmingComfort" className="w-full border p-2 rounded">
+        <option value="Totally comfortable">Totally comfortable</option>
+        <option value="Somewhat comfortable">Somewhat comfortable</option>
+        <option value="Not really comfortable">Not really comfortable</option>
+        <option value="I’ve never tried it">I’ve never tried it</option>
+      </select>
+    </label>
+
+    <label>
+      Workout Frequency:
+      <select name="frequency" className="w-full border p-2 rounded">
+        <option value="1–2 times/week">1–2 times/week</option>
+        <option value="3–4 times/week">3–4 times/week</option>
+        <option value="5+ times/week">5+ times/week</option>
+        <option value="Not consistently">Not consistently</option>
+      </select>
+    </label>
+
+    <label>
+      What feature would you be most excited about in Posturous?
+      <textarea name="favoriteFeature" className="w-full border p-2 rounded"></textarea>
+    </label>
+
+    <label>
+      Would you be open to giving feedback or joining our beta test group?
+      <select name="betaInterest" className="w-full border p-2 rounded">
+        <option value="Yes!">Yes!</option>
+        <option value="Maybe">Maybe</option>
+        <option value="Not right now">Not right now</option>
+      </select>
+    </label>
+
+    <p className="text-sm text-gray-600">✉️ We’ll use your answers to build something that actually helps — and you’ll be the first to know when it’s ready.</p>
+
+    <button type="submit" className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      Submit
+    </button>
+  </form>
+)}
+
       </section>
 
 
