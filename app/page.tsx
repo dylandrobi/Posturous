@@ -67,7 +67,7 @@ export default function LandingPage() {
           Train safer, lift smarter — Posturous gives you real-time feedback on your form.
         </p>
         <div className="w-123 border-t border-white my-4" />
-        <p className="text-sm text-gray-300 mb-8">Soon supporting: deadlift, squat, and bench press (2026). More exercises coming soon.</p>
+        <p className="text-sm text-gray-300 mb-8">Soon supporting: deadlift, squat, and bench press (2026). More exercises to come.</p>
         <div className="flex flex-col sm:flex-row gap-4">
           <a href="#get-paid" className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-2xl shadow-md transition-all">
             Get Paid to Lift
@@ -82,7 +82,7 @@ export default function LandingPage() {
             Join Waitlist
           </button>
         </div>
-        <div className="mt-16 text-sm text-gray-400">&copy; {new Date().getFullYear()} Posturous.</div>
+        {/*<div className="mt-16 text-sm text-gray-400">&copy; {new Date().getFullYear()} Posturous.</div>*/}
 
         {/* Waitlist Popup Form */}
         {showForm && (
