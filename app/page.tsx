@@ -92,7 +92,18 @@ export default function LandingPage() {
 
       {/* Hero Section */}
       <section className="flex flex-col justify-center items-center min-h-screen max-w-3xl w-full pt-24" id="hero">
-        <h1 className="text-5xl md:text-6xl font-bold mb-6">Posturous</h1>
+      <div className="relative flex items-center justify-center mb-6 w-full">
+  {/* Background Glow */}
+  <img
+    src="/bluegradient.png"
+    alt="glow"
+    className="absolute top-1/2 left-1/2 w-[1000px] h-auto -translate-x-1/2 -translate-y-1/2 opacity-60 pointer-events-none z-0 animate-pulse
+"
+  />
+
+  {/* Heading */}
+  <h1 className="relative z-10 text-5xl md:text-6xl font-bold text-white">Posturous</h1>
+</div>
         <p className="text-lg md:text-xl max-w-xl mb-4">
           Train safer, lift smarter — Posturous gives you real-time feedback on your form.
         </p>
@@ -356,7 +367,7 @@ export default function LandingPage() {
             <h3 className="text-xl font-semibold mb-2">COO: Nathan Goldstein, B.S. Electrical Engineering</h3>
             <p className="text-sm mb-2">📞 314-604-5909<br />📧 goldstn2@union.edu<br />🔗 <a href="https://www.linkedin.com/in/nathan-goldstein-a3304125b/" className="text-blue-400 underline">LinkedIn</a></p>
             <button onClick={() => setShowNathan(!showNathan)} className="text-sm underline text-blue-500 mt-2">{showNathan ? "Hide Story" : "Hear Story"}</button>
-            {showNathan && <p className="text-sm mt-2"> </p>}
+            {showNathan && <p className="text-sm mt-2">After 2 ankle tears from bad running form and a broken elbow from unknowingly forming the habit of throwing a football incorrectly, I realized that trained athletes like myself are still massively ignorant when it comes to form. I have a focus on helping others, specifically the youth, start out with good form, because I believe I would have benefited from forming the habit of good technique from a young age. Aside from that, I am passionate about product development and ideation, and with my two past student run start-ups of my own, I enjoy the grassroots efforts to make a difference in the world.</p>}
           </div>
         </div>
         <p className="text-sm text-center mt-12">We’re two Union College students and engineers on a mission to make fitness safer and smarter. Posturous is built on the belief that good form should be accessible to everyone — and technology can get us there.</p>
